@@ -1,0 +1,84 @@
+{
+  "formId": "tdee-calculator",
+  "name": "TDEE計算器",
+  "description": "計算每日總消耗量和建議卡路里攝取",
+  "version": "1.0.0",
+  "tableName": "form_tdee_submissions",
+  "guestAccessible": true,
+  "category": "health",
+  "tags": ["健康", "卡路里", "減重", "健身"],
+  "submitEndpoint": "/api/forms/tdee-calculator/submit",
+  "fields": [
+    {
+      "id": "gender",
+      "type": "radio",
+      "label": "性別",
+      "required": true,
+      "options": [
+        {"label": "男性", "value": "male"},
+        {"label": "女性", "value": "female"}
+      ]
+    },
+    {
+      "id": "age",
+      "type": "number",
+      "label": "年齡",
+      "required": true,
+      "min": 1,
+      "max": 120,
+      "unit": "歲"
+    },
+    {
+      "id": "height",
+      "type": "number",
+      "label": "身高",
+      "required": true,
+      "min": 50,
+      "max": 250,
+      "step": 0.1,
+      "unit": "cm"
+    },
+    {
+      "id": "weight",
+      "type": "number",
+      "label": "體重",
+      "required": true,
+      "min": 10,
+      "max": 300,
+      "step": 0.1,
+      "unit": "kg"
+    },
+    {
+      "id": "activity_level",
+      "type": "select",
+      "label": "活動程度",
+      "required": true,
+      "options": [
+        {"label": "久坐少動", "value": "sedentary"},
+        {"label": "輕度活躍", "value": "lightly_active"},
+        {"label": "中度活躍", "value": "moderately_active"},
+        {"label": "高度活躍", "value": "very_active"},
+        {"label": "極度活躍", "value": "extremely_active"}
+      ]
+    },
+    {
+      "id": "goal",
+      "type": "select",
+      "label": "目標",
+      "required": false,
+      "options": [
+        {"label": "減重", "value": "lose_weight"},
+        {"label": "維持體重", "value": "maintain"},
+        {"label": "增重", "value": "gain_weight"}
+      ]
+    }
+  ],
+  "results": {
+    "display": [
+      {"key": "bmr", "label": "基礎代謝率 (BMR)", "unit": "卡路里/天"},
+      {"key": "tdee", "label": "每日總消耗量 (TDEE)", "unit": "卡路里/天"},
+      {"key": "target_calories", "label": "建議卡路里攝取", "unit": "卡路里/天"}
+    ],
+    "charts": ["trend", "comparison"]
+  }
+}

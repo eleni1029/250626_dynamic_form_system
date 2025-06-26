@@ -1,0 +1,57 @@
+{
+  "formId": "bmi-calculator",
+  "name": "BMI計算器",
+  "description": "輸入身高體重計算BMI值和健康分類",
+  "version": "1.0.0",
+  "tableName": "form_bmi_submissions",
+  "guestAccessible": true,
+  "category": "health",
+  "tags": ["健康", "BMI", "體重管理"],
+  "submitEndpoint": "/api/forms/bmi-calculator/submit",
+  "fields": [
+    {
+      "id": "height",
+      "type": "number",
+      "label": "身高",
+      "required": true,
+      "min": 50,
+      "max": 250,
+      "step": 0.1,
+      "unit": "cm",
+      "validation": {
+        "required": true,
+        "min": 50,
+        "max": 250
+      }
+    },
+    {
+      "id": "weight",
+      "type": "number",
+      "label": "體重",
+      "required": true,
+      "min": 10,
+      "max": 300,
+      "step": 0.1,
+      "unit": "kg",
+      "validation": {
+        "required": true,
+        "min": 10,
+        "max": 300
+      }
+    },
+    {
+      "id": "notes",
+      "type": "textarea",
+      "label": "備註",
+      "required": false,
+      "placeholder": "任何額外的資訊..."
+    }
+  ],
+  "results": {
+    "display": [
+      {"key": "bmi", "label": "BMI值", "unit": ""},
+      {"key": "category", "label": "健康分類", "unit": ""}
+    ],
+    "charts": ["trend"]
+  }
+}
