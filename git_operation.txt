@@ -1,0 +1,42 @@
+git add .
+git commit -m "常規更新"
+git push origin main --force
+
+rm -rf .git
+git clone https://github.com/eleni1029/250626_dynamic_form_system.git .
+
+清空所有內容（注意會刪掉所有 .env 等檔案）
+cd ..
+rm -rf 250626_dynamic_form_system
+git clone https://github.com/eleni1029/250626_dynamic_form_system.git
+
+
+# 設置遠程倉庫（替換 YOUR_USERNAME）
+git remote add origin https://github.com/eleni1029/250626_dynamic_form_system.git
+
+# 推送到主分支
+git branch -M main
+git push -u origin main
+
+繼續提供之前，由於我們的對話長度太長，可能要另起會話，但是妳在新的會話會無法記得我們現在的進度，需要妳提供兩件事的詳細說明，保證後續的交付品質：
+1. 我們的整體需求為何？
+2. 我們目前的進度到哪裡，接下來需要提供的整體內容為何？
+
+
+a. GIT 連接
+git init
+git remote add origin https://github.com/eleni1029/250626_dynamic_form_system.git
+
+b. 把內容都拉下來
+git fetch origin
+git reset --hard origin/main
+
+c. 更新到 git 上
+git add .
+git commit -m "常規更新"
+git push -u origin main
+
+c. 強制更新到 git 上
+git add .
+git commit -m "常規更新"
+git push origin main --force
